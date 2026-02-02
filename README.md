@@ -62,10 +62,9 @@ El script de inicialización se encuentra en la carpeta `/data`. Este comando ge
 python data/crear_datos.py
 ```
 
-```markdown
 > [!WARNING]
 > **Ubicación de la BD**: Ejecuta el script desde la raíz. El archivo `logistica.db` debe quedar en `data/logistica.db` para que las rutas de los scripts funcionen correctamente.
-```
+
 
 ### 3. Ejecutar la optimización
 Una vez generada la base de datos, lanza el orquestador principal. Este script leerá los pedidos pendientes de SQL, los procesará con el motor de inferencia CLIPS y guardará las decisiones de vuelta en la base de datos:
