@@ -90,6 +90,37 @@ El sistema utiliza razonamiento lógico para resolver conflictos de asignación 
 
 ---
 
+---
+
+## 🖥️ Ejemplo de Ejecución (Terminal Output)
+
+Al ejecutar el orquestador, se puede observar cómo el motor de inferencia procesa cada pedido y toma decisiones basadas en la lógica de negocio, dejando en estado "PENDIENTE" aquellos que no cumplen los requisitos de seguridad (como el pedido P-105 por exceso de peso):
+
+```text
+--- 1. LEYENDO BASE DE DATOS ---
+📦 Cargado pedido pendiente: P-100...P-105
+
+--- 2. PENSANDO (MOTOR CLIPS) ---
+>>> [CLIPS] Asignado pedido P-104 (400kg) al CAMION CAMION-01
+>>> [CLIPS] Asignado pedido P-103 a MOTO MOTO-RX
+>>> [CLIPS] Asignado pedido P-101 (50kg) a FURGONETA FURGO-A
+
+--- 3. REPORTE EN MEMORIA ---
+PEDIDO      ASIGNADO A      MOTIVO
+--------------------------------------------------
+P-104       CAMION-01       Carga Pesada/Voluminosa
+P-103       MOTO-RX         Urgencia Express
+P-101       FURGO-A         Carga Estandar
+
+--- 4. GUARDANDO ASIGNACIONES EN SQL ---
+✅ Base de datos actualizada con éxito.
+
+--- 🏁 VERIFICACIÓN FINAL EN SQL ---
+ID: P-104 | Asignado a: CAMION-01  | Estado: Carga Pesada/Voluminosa
+ID: P-105 | Asignado a: None       | Estado: PENDIENTE  <-- (Exceso de capacidad)
+```
+---
+
 ## 📄 Licencia y Autoría
 Este proyecto ha sido desarrollado por **Jorge Herraiz Soler** como parte de la especialización en **IA y Big Data**.
 
