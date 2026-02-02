@@ -1,0 +1,15 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Base de datos (opcional, si quieres que cada uno genere la suya)
+*.db
+
+# VS Code / IDEs
+.vscode/
+.idea/

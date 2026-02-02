@@ -29,12 +29,21 @@ El proyecto sigue la arquitectura de un **Sistema Experto Moderno**:
 
 ## 📂 Estructura del Proyecto
 
-* `main.py`: Orquestador principal que conecta la base de datos con el motor de reglas.
-* `logistica_maestra.py`: Definición de las estructuras de datos y lógica de asignación.
-* `crear_datos.py`: Script de utilidad para inicializar la base de datos SQLite con datos de prueba.
-* `chatbot_db_clips.py`: Módulo de integración para consultas de usuario y validación de perfiles.
-* `medico_clips.py`: Módulo adicional que demuestra la versatilidad del motor en diagnósticos preventivos.
-
+```text
+Expert-Logistics-Engine/
+├── src/
+│   ├── main.py                # Orquestador: conecta SQL con CLIPS
+│   └── logistica.clp          # Reglas de negocio (Sistemas Expertos)
+├── data/
+│   ├── crear_datos.py         # Script para inicializar la DB
+│   └── logistica.db           # Base de datos SQLite (Generada)
+├── scripts_adicionales/       # Módulos de apoyo y pruebas
+│   ├── logistica_maestra.py
+│   ├── chatbot_db_clips.py
+│   └── prueba_variables.py
+├── requirements.txt           # Dependencias (clipspy)
+└── README.md                  # Documentación
+```
 ---
 
 ## 🚦 Guía de Inicio Rápido
@@ -53,8 +62,10 @@ El script de inicialización se encuentra en la carpeta `/data`. Este comando ge
 python data/crear_datos.py
 ```
 
-[!WARNING] Importante sobre la ubicación de la BD: Asegúrate de ejecutar este comando desde la carpeta raíz (Expert-Logistics-Engine). Si el archivo logistica.db se genera dentro de /data por error, muévelo a la carpeta raíz para que main.py pueda detectarlo correctamente.
-
+```markdown
+> [!WARNING]
+> **Ubicación de la BD**: Ejecuta el script desde la raíz. El archivo `logistica.db` debe quedar en `data/logistica.db` para que las rutas de los scripts funcionen correctamente.
+```
 
 ### 3. Ejecutar la optimización
 Una vez generada la base de datos, lanza el orquestador principal. Este script leerá los pedidos pendientes de SQL, los procesará con el motor de inferencia CLIPS y guardará las decisiones de vuelta en la base de datos:
